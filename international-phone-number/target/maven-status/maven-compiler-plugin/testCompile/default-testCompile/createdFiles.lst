@@ -1,0 +1,6 @@
+com\international\phone\number\InternationalPhoneNumberApplicationTests.class
+com\international\phone\number\service\CustomerServiceTest.class
+com\international\phone\number\service\InternationalPhoneNumberServiceTest.class
+com\international\phone\number\service\PhoneNumberValidationServiceTest.class
+com\international\phone\number\controller\PhoneNumbersValidationControllerTest.class
+com\international\phone\number\utils\GenerateStubs.class

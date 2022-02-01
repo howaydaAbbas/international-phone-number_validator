@@ -1,0 +1,17 @@
+com\international\phone\number\demo\model\response\PhoneNumberValidationResponse.class
+com\international\phone\number\demo\service\impl\CustomerService.class
+com\international\phone\number\demo\model\response\PhoneNumberValidationResult.class
+com\international\phone\number\demo\service\impl\InternationalPhoneNumberService.class
+com\international\phone\number\demo\service\dto\InternationalPhoneNumberDTO.class
+com\international\phone\number\demo\model\Customer.class
+com\international\phone\number\demo\controller\PhoneNumbersValidationController.class
+com\international\phone\number\demo\utils\Constants.class
+com\international\phone\number\demo\repo\result\CustomerPhoneNumber.class
+com\international\phone\number\demo\repo\CustomerRepository.class
+com\international\phone\number\demo\config\db\SQLiteDialect.class
+com\international\phone\number\demo\exception\CountryNotFoundException.class
+com\international\phone\number\demo\repo\InternationalPhoneNumberRepository.class
+com\international\phone\number\demo\service\impl\PhoneNumberValidationService.class
+com\international\phone\number\InternationalPhoneNumberApplication.class
+com\international\phone\number\demo\config\db\SQLiteIdentityColumnSupport.class
+com\international\phone\number\demo\model\InternationalPhoneNumber.class

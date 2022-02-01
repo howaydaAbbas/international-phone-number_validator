@@ -1,0 +1,49 @@
+
+version: '2.0'
+
+# Define services
+services:
+  # App backend service
+  app-server:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: international-phone-number
+      dockerfile: Dockerfile
+    volumes:
+      - ./sample.db:/international-phone-number/sample.db
+    ports:
+      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlite:sample.db
+      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.sqlite.JDBC
+      - SPRING_DATASOURCE_USERNAME=
+      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=update
+      - SPRING_JPA_DATABASE-PLATFORM=com.international.phone.number.demo.config.db.SQLiteDialect
+      - SPRING_LIQUIBASE_CHANGE-LOG=classpath:liquibase/master.xml
+      - SPRING_LIQUIBASE_ENABLED=true
+
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend
+      - frontend
+
+  # Frontend Service 
+  app-client:
+    build:
+      context: phonenumber_validator_ui
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: http://127.0.0.1:8080/api
+    ports:
+      - "3000:3000" # Map the exposed port 80 on the container to port 9090 on the host machine
+    restart: always
+    depends_on:
+      - app-server
+    networks:
+      - frontend  
+
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:
+  frontend: 
