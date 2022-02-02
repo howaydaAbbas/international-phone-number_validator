@@ -7,3 +7,9 @@
 3- Please notice that I've configured port 8080 for the backend service and port 3000 for the frontend service. Also I included a liquibase script to insert the regular expressions.
 
 4- That's all for now , if you faced any unexpected error , contact me on howayda.gamal@gmail.com 
+
+Resources:
+
+https://www.callicoder.com/spring-boot-mysql-react-docker-compose-example/
+
+https://github.com/desoga10/data-grid
