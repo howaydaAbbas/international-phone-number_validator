@@ -37,7 +37,7 @@ public class PhoneNumberValidationService {
         PhoneNumberValidationResponse phoneNumberValidationResponse = new PhoneNumberValidationResponse();
         customerPhoneNumbers.stream().forEach(customerPhoneNumber -> {
             try {
-                phoneNumberValidationResponse.getPhoneNumberValidationResultList().add(isValidPhoneNumber(customerPhoneNumber.getPhone()));
+                phoneNumberValidationResponse.getPhoneNumberValidationResultList().add(validatePhoneNumber(customerPhoneNumber.getPhone()));
             } catch (CountryNotFoundException e) {
                 log.error(e.getMessage() + "for phone number {}", customerPhoneNumber.getPhone());
             }
@@ -47,7 +47,7 @@ public class PhoneNumberValidationService {
         return phoneNumberValidationResponse;
     }
 
-    public PhoneNumberValidationResult isValidPhoneNumber(final String phoneNumber) throws CountryNotFoundException {
+    public PhoneNumberValidationResult validatePhoneNumber(final String phoneNumber) throws CountryNotFoundException {
 
         log.info("Start isValidPhoneNumber with phoneNumber {}", phoneNumber);
         List<InternationalPhoneNumberDTO> internationalPhoneNumberDTOList = internationalPhoneNumberService.findAll();

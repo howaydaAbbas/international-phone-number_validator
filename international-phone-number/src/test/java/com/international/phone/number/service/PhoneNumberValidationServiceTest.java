@@ -48,7 +48,7 @@ public class PhoneNumberValidationServiceTest {
     @Test
     public void givenValidPhoneNumberThenReturnValidResponse() throws CountryNotFoundException {
         Mockito.when(internationalPhoneNumberService.findAll()).thenReturn(generateInternationalPhoneNumberDTOList());
-        PhoneNumberValidationResult phoneNumberValidationResult = phoneNumberValidationService.isValidPhoneNumber(VALID_PHONE_NUMBER);
+        PhoneNumberValidationResult phoneNumberValidationResult = phoneNumberValidationService.validatePhoneNumber(VALID_PHONE_NUMBER);
         Assertions.assertEquals(generatePhoneNumberValidationResult().getNumber(), phoneNumberValidationResult.getNumber());
         Assertions.assertTrue(phoneNumberValidationResult.isValid());
     }
@@ -56,7 +56,7 @@ public class PhoneNumberValidationServiceTest {
     @Test
     public void givenInvalidPhoneNumberThenReturnInvalidResponse() throws CountryNotFoundException {
         Mockito.when(internationalPhoneNumberService.findAll()).thenReturn(generateInternationalPhoneNumberDTOList());
-        PhoneNumberValidationResult phoneNumberValidationResult = phoneNumberValidationService.isValidPhoneNumber(INVALID_PHONE_NUMBER);
+        PhoneNumberValidationResult phoneNumberValidationResult = phoneNumberValidationService.validatePhoneNumber(INVALID_PHONE_NUMBER);
         Assertions.assertFalse(phoneNumberValidationResult.isValid());
     }
 
